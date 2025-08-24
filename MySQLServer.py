@@ -11,7 +11,10 @@ def login():
     except mysql.connector.Error:
         print("Please try again and make sure all details are correct.")
 
-def database_creation():
+mydb = login()
+mycursor = mydb.cursor()
+
+mycursor.execute(
     """
     CREATE DATABASE IF NOT EXISTS alx_book_store;
     USE alx_book_store;
@@ -44,7 +47,4 @@ def database_creation():
         order_date DATE
     );
     """
-mydb = login()
-mycursor = mydb.cursor()
-
-mycursor.execute(database_creation)
+)
