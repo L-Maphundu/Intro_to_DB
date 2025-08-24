@@ -8,7 +8,7 @@ def login():
             password = input("Enter password: ").strip().lower(),
             database = input("Enter database: ").strip().lower()
         )
-    except:
+    except mysql.connector.Error:
         print("Please try again and make sure all details are correct.")
 
 def database_creation():
